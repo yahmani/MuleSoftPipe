@@ -1,0 +1,25 @@
+{
+  "configs": [
+    "quickstart-store.xml"
+  ],
+  "secureProperties": [],
+  "redeploymentEnabled": true,
+  "name": "2b75406c-7440-4b01-9008-8b3a915e1841:mulefirstproject:1.0.1",
+  "minMuleVersion": "4.4.0",
+  "requiredProduct": "MULE_EE",
+  "classLoaderModelLoaderDescriptor": {
+    "id": "mule",
+    "attributes": {
+      "exportedPackages": [],
+      "exportedResources": [
+        "log4j2.xml",
+        "api/quickstart-store.raml",
+        "quickstart-store.xml"
+      ]
+    }
+  },
+  "bundleDescriptorLoader": {
+    "id": "mule",
+    "attributes": {}
+  }
+}
