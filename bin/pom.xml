@@ -79,5 +79,5 @@
 			</snapshots>
 		</pluginRepository>
 	</pluginRepositories>
-
+<!-- This is pom comment-->
 </project>
