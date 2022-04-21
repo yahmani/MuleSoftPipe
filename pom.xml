@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>2b75406c-7440-4b01-9008-8b3a915e1841</groupId>
 	<artifactId>mulefirstproject</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
-    <packaging>mule-application</packaging>
-	
+	<version>1.0.1</version>
+	<packaging>mule-application</packaging>
+
 	<name>mulefirstproject</name>
+
 	<description/>
 	<properties>
 		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -20,8 +20,7 @@
 		<categories>[]</categories>
 	</properties>
 
-
-	<build>		
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -34,81 +33,42 @@
 				<version>${mule.maven.plugin.version}</version>
 				<extensions>true</extensions>
 				<configuration>
-                    <cloudHubDeployment>
-                      <uri>https://anypoint.mulesoft.com</uri>
-                      <muleVersion>${runtime_version}</muleVersion>
-                      <connectedAppClientId>${clientid}</connectedAppClientId>
-                      <connectedAppClientSecret>${clientsecret}</connectedAppClientSecret>
-                      <connectedAppGrantType>client_credentials</connectedAppGrantType>
-                      <applicationName>${appname}</applicationName>
-                      <environment>${environment}</environment>
-                      <workers>${workerCount}</workers>
-                      <workerType>${workerType}</workerType>
-                      <objectStoreV2>true</objectStoreV2>
-                    </cloudHubDeployment>
+					<cloudHubDeployment>
+						<uri>https://anypoint.mulesoft.com</uri>
+						<muleVersion>${runtime_version}</muleVersion>
+						<connectedAppClientId>${clientid}</connectedAppClientId>
+						<connectedAppClientSecret>${clientsecret}</connectedAppClientSecret>
+						<connectedAppGrantType>client_credentials</connectedAppGrantType>
+						<region>${region}</region>
+						<applicationName>${appname}</applicationName>
+						<environment>${environment}</environment>
+						<workers>${workerCount}</workers>
+						<workerType>${workerType}</workerType>
+						<objectStoreV2>true</objectStoreV2>
+					</cloudHubDeployment>
 				</configuration>
 			</plugin>
-			<!-- Commented Out Plugin detail to avoid issue with Enterprise Unit Testing <plugin>
-				<groupId>com.mulesoft.munit.tools</groupId>
-				<artifactId>munit-maven-plugin</artifactId>
-				<version>${munit.version}</version>
-				<executions>
-					<execution>
-						<id>test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>test</goal>
-							<goal>coverage-report</goal>
-						</goals>
-					</execution>
-				</executions>
-				<configuration>
-					<coverage>
-						<runCoverage>true</runCoverage>
-						<failBuild>true</failBuild>
-						<requiredApplicationCoverage>80</requiredApplicationCoverage>
-						<formats>
-							<format>console</format>
-							<format>html</format>
-						</formats>
-					</coverage>
-				</configuration>
-			</plugin> -->
 		</plugins>
 	</build>
 
 	<dependencies>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-http-connector</artifactId>
-            <version>1.5.23</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
-        <dependency>
-            <groupId>org.mule.connectors</groupId>
-            <artifactId>mule-sockets-connector</artifactId>
-            <version>1.2.0</version>
-            <classifier>mule-plugin</classifier>
-        </dependency>
 		<dependency>
-			<groupId>com.mulesoft.munit</groupId>
-			<artifactId>munit-runner</artifactId>
-			<version>2.3.2</version>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-http-connector</artifactId>
+			<version>1.6.0</version>
 			<classifier>mule-plugin</classifier>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>com.mulesoft.munit</groupId>
-			<artifactId>munit-tools</artifactId>
-			<version>2.3.2</version>
+			<groupId>org.mule.connectors</groupId>
+			<artifactId>mule-sockets-connector</artifactId>
+			<version>1.2.2</version>
 			<classifier>mule-plugin</classifier>
-			<scope>test</scope>
 		</dependency>
 		<dependency>
-			<groupId>org.mule.weave</groupId>
-			<artifactId>assertions</artifactId>
-			<version>1.0.2</version>
-			<scope>test</scope>
+			<groupId>org.mule.modules</groupId>
+			<artifactId>mule-apikit-module</artifactId>
+			<version>1.5.11</version>
+			<classifier>mule-plugin</classifier>
 		</dependency>
 	</dependencies>
 
@@ -127,15 +87,16 @@
 		</repository>
 	</repositories>
 
-    <pluginRepositories>
-        <pluginRepository>
-            <id>mulesoft-releases</id>
-            <name>mulesoft release repository</name>
-            <layout>default</layout>
-            <url>https://repository.mulesoft.org/releases/</url>
-            <snapshots>
-                <enabled>false</enabled>
-            </snapshots>
-        </pluginRepository>
-    </pluginRepositories>
+	<pluginRepositories>
+		<pluginRepository>
+			<id>mulesoft-releases</id>
+			<name>MuleSoft Releases Repository</name>
+			<layout>default</layout>
+			<url>https://repository.mulesoft.org/releases/</url>
+			<snapshots>
+				<enabled>false</enabled>
+			</snapshots>
+		</pluginRepository>
+	</pluginRepositories>
+
 </project>
